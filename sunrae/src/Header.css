@@ -1,0 +1,71 @@
+.header{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(206, 169, 121);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.header__logo{
+    width: 250px;
+    object-fit: contain;
+    margin: 0 20px;
+}
+
+.header__search{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.header__searchText{
+    font-size: 16px;
+    letter-spacing: 1px;
+    height: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid rgb(185, 151, 108);;
+    border-radius: 20px;
+}
+
+.header__searchIcon{
+    padding: 5px;
+    /* important to override mui css */
+    height: 22px I !important;
+    background-color: rgb(206, 169, 121);
+}
+
+.header__lineOne{
+    font-size: 13px;
+}
+
+.header__lineTwo{
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.header__optionCart{
+    display: flex;
+    align-items: center;
+}
+
+.header__cartQuantity{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.header__nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header__option{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
