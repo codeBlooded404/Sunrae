@@ -1,0 +1,33 @@
+.checkoutItem{
+    display: flex;  
+    margin: 15px 10px 0px 5px;
+    border: 2px solid rgb(148, 69, 0);
+    border-radius: 5px;
+    background-color: #fcecd8;
+}
+.checkoutItem__image{
+    object-fit:contain;
+    width:180px;
+    height: 180px;
+}
+.checkoutItem__info{
+    padding-left:20px
+}
+.checkoutItem__info > button{
+    background-color: rgb(202, 159, 103);
+    border: none;
+    border-radius: 20px;
+    height: 2.1rem;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: rgb(148, 69, 0);
+    font-weight: bold;
+    /* position: sticky; */
+    border-color:  #9c7e32;
+}
+.checkoutItem__title{
+    font-size:17px;
+    font-weight:800;
+}
+
+

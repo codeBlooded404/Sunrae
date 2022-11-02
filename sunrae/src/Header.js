@@ -3,8 +3,12 @@ import "./Header.css";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { Link } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
 
 function Header() {
+
+  const [{ cart }, dispatch] = useStateValue();
+
   return (
     <div className="header">
       <Link to="/">
@@ -28,7 +32,7 @@ function Header() {
           </div>
         </Link>
 
-        <Link className="text-link" to="/profile" >
+        <Link className="text-link" to="/profile">
           <div className="header__option">
             <span className="header__lineOne">Your</span>
             <span className="header__lineTwo">Profile</span>
@@ -45,7 +49,8 @@ function Header() {
         <Link className="text-link" to="/checkout">
           <div className="header__optionCart">
             <ShoppingCartTwoToneIcon />
-            <span className="header__lineTwo header__cartQuantity">0</span>
+            {/* ? ==>> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining */}
+            <span className="header__lineTwo header__cartQuantity">{cart?.length}</span>
           </div>
         </Link>
       </div>
