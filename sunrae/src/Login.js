@@ -2,13 +2,51 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "./firebase";
 import "./Login.css";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 
 function Login() {
   //create states
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
 
-    
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const login = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const registration = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="login">
@@ -25,14 +63,35 @@ function Login() {
 
         <form>
           <h4>Enter Your Email: </h4>
-          <input type="text" value={email} onChange={e => setEmail(e.target.value)}></input>
+          <input
+            type="text"
+            onChange={(event) => {
+              setLoginEmail(event.target.value);
+            }}
+          ></input>
           <h4>Enter Your Password: </h4>
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)}></input>
+          <input
+            type="password"
+            onChange={(event) => {
+              setLoginPassword(event.target.value);
+            }}
+          ></input>
 
-          <button className="login__signIn" type="submit" onClick={signIn}>Click To Sign In</button>
+          <button className="login__signIn" type="submit" onClick={login}>
+            Click To Sign In
+          </button>
         </form>
 
-        <button className="login__register" type="submit" onClick={registration}>Create Your Account</button>
+        <button
+          className="login__register"
+          type="submit"
+          onClick={registration}
+        >
+          Create Your Account
+        </button>
+
+        <h4> User Logged In: </h4>
+        {user?.email}
       </div>
     </div>
   );
