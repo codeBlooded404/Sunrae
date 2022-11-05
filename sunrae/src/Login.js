@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { auth } from "./firebase";
 import "./Login.css";
 import {
@@ -15,36 +15,49 @@ function Login() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const history = useNavigate ();
 
   const [user, setUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
+  // const logout = async () => {
+  //   await signOut(auth);
+  // };
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
     try {
       const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
+      if(auth){
+        history('/');
+      }
       console.log(user);
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
 
-  const registration = async () => {
+  const registration = async (e) => {
+    e.preventDefault();
     try {
       const user = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
+      if(auth){
+        history('/');
+      }
       console.log(user);
-    } catch (error) {
-      console.log(error.message);
+    } 
+    catch (error) {
+      alert(error.message);
     }
   };
 
@@ -67,6 +80,7 @@ function Login() {
             type="text"
             onChange={(event) => {
               setLoginEmail(event.target.value);
+              setRegisterEmail(event.target.value);
             }}
           ></input>
           <h4>Enter Your Password: </h4>
@@ -74,6 +88,7 @@ function Login() {
             type="password"
             onChange={(event) => {
               setLoginPassword(event.target.value);
+              setRegisterPassword(event.target.value);
             }}
           ></input>
 
@@ -90,8 +105,9 @@ function Login() {
           Create Your Account
         </button>
 
-        <h4> User Logged In: </h4>
+        {/* <h4> User Logged In: </h4>
         {user?.email}
+        <button onClick={logout}> Sign Out </button> */}
       </div>
     </div>
   );

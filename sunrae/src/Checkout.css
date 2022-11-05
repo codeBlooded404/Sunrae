@@ -3,6 +3,8 @@
     padding: 20px;
     height: max-content;
     justify-content: space-between;
+    background-color: rgb(252, 233, 198);  
+    height: 100vh ;
 }
 
 .checkout__title{

@@ -1,7 +1,7 @@
 .checkoutItem{
     display: flex;  
     margin: 15px 10px 0px 5px;
-    border: 2px solid rgb(148, 69, 0);
+    border: 4px solid rgb(148, 69, 0);
     border-radius: 5px;
     background-color: #fcecd8;
 }

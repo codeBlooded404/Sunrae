@@ -1,8 +1,9 @@
 //data layer
 
-//create the initialState with empty cart
+//create the initialState with empty cart and no user
 export const initialState = {
   cart: [],
+  user: null
 };
 
 //build selector
@@ -41,6 +42,13 @@ const reducer = (state, action) => {
         ...state,
         cart: newCart,
       };
+
+    case "SET_USER_NAME":
+      return{
+        //everything that is in the state and update user
+        ...state,
+        user: action.user
+      }
 
     default:
       return state;

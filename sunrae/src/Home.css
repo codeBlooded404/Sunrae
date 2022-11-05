@@ -3,14 +3,15 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    max-width: 1500px;
+    background-color: rgb(252, 233, 198);    
 }
 
 .home__row{
     display: flex;
     z-index: 1;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
 }
 
 .home__image{
