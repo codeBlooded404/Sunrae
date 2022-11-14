@@ -4,9 +4,11 @@ import Header from "./Header";
 import Home from "./Home";
 import Login from "./Login";
 import Checkout from "./Checkout";
+import Payment from "./Payment";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { auth, getAuth, updateEmail } from "./firebase";
 import { useStateValue } from "./StateProvider";
+
 
 function App() {
   const [{ cart }, dispatch] = useStateValue();
@@ -49,8 +51,16 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
+        
           <Route path="/profile" element={<h1>profile page</h1>} />
-          <Route path="/orders" element={<><Header /> <Checkout /></>} />
+          <Route
+            path="/orders"
+            element={
+              <>
+                <Header /> <Checkout />
+              </>
+            }
+          />
           <Route
             path="/checkout"
             element={
@@ -60,6 +70,9 @@ function App() {
               </>
             }
           />
+          <Route path="/payment" element={<>
+                <Header /> <Payment />
+              </>} />
         </Routes>
       </Router>
     </div>
