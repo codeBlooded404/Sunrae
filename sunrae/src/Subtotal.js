@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Subtotal() {
   //lets us use the browser history
   const navigate = useNavigate();
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ cart }] = useStateValue();
 
   const handleClick = () => {
     navigate("/payment");

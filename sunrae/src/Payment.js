@@ -1,11 +1,75 @@
-import React from "react";
+//https://stripe.com/docs/api/payment_intents
+import React, { useState, useEffect } from "react";
 import "./Payment.css";
+import { getCartTotal } from "./reducer";
 import { useStateValue } from "./StateProvider";
 import CheckoutItem from "./CheckoutItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useElements, useStripe, CardElement } from "@stripe/react-stripe-js";
+import CurrencyFormat from "react-currency-format";
+import axios from "./axios";
+//import { db } from "./firebase";
 
 function Payment() {
-  const [{ cart, user }, dispatch] = useStateValue();
+  const [{ cart, user }] = useStateValue();
+  const history = useNavigate();
+  const [error, setError] = useState(null);
+  const [disabled, setDisabled] = useState(true);
+  const [succeeded, setSucceeded] = useState(false);
+  const [processing, setProcessing] = useState("");
+  const [userSecret, setUserSecret] = useState(true);
+
+  //payment hooks
+  const stripe = useStripe();
+  const elements = useElements();
+
+  useEffect(() => {
+    // generates stripe secret - allows charging the customer
+    const getUserSecret = async () => {
+      const response = await axios({
+        method: "post",
+        // Stripe expecting total currencies format so mult by 100
+        url: `/payments/create?total=${getCartTotal(cart) * 100}`,
+      });
+      setUserSecret(response.data.userSecret);
+    };
+    getUserSecret();
+  }, [cart]);
+
+  console.log("User Secret: ", userSecret);
+  console.log("User: ", user);
+
+  const handleSubmit = async (e) => {
+    //stripe working
+    e.preventDefault();
+    //prevents user from clicking buy button more than once
+    setProcessing(true);
+
+    const payload = await stripe
+      .confirmCardPayment(userSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      })
+      .then(({ paymentIntent }) => {
+        //payment confirmation
+
+        setSucceeded(true);
+        setError(null);
+        setProcessing(false);
+
+        history("/orders", { replace: true });
+      });
+  };
+
+  const handleChange = (e) => {
+    //stripe working
+    //listen for changes and display errors of cc details
+    //if the event is empty disable button
+    setDisabled(e.empty);
+    //if the event has an error show the error or show nothing
+    setError(e.error ? e.error.message : "");
+  };
 
   return (
     <div className="container">
@@ -18,7 +82,7 @@ function Payment() {
           {/* delivery address */}
           <div className="payment__addressSection">
             <div className="payment__title">
-              <h3>Address to Deliver to</h3>
+              <h3>Deliver to</h3>
             </div>
             <div className="payment__address">
               <p>{user?.email}</p>
@@ -30,7 +94,7 @@ function Payment() {
           {/* review items */}
           <div className="payment__reviewSection">
             <div className="payment__title">
-              <h3>Review Cart and Delivery Address</h3>
+              <h3>Review Cart</h3>
             </div>
             <div className="payment__items">
               {/* for every item in cart, return the checkoutItem component  */}
@@ -44,7 +108,38 @@ function Payment() {
                 />
               ))}
             </div>
-            {/* payment section would go here */}
+          </div>
+
+          {/* payment section would go here */}
+          <div className="payment__paymentSection">
+            <div className="payment__title">
+              <h3>Payment</h3>
+            </div>
+            <div className="payment__details">
+              {/* Stripe magic will go */}
+              <form onSubmit={handleSubmit}>
+                <CardElement onChange={handleChange} />
+
+                <div className="payment__priceContainer">
+                  <CurrencyFormat
+                    renderText={(value) => <h3>Order Total: {value}</h3>}
+                    decimalScale={2}
+                    value={getCartTotal(cart)}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"$"}
+                  />
+                  <button disabled={processing || disabled || succeeded}>
+                    <span>
+                      {processing ? <p>Processing.....</p> : "Buy This Now"}
+                    </span>
+                  </button>
+                </div>
+
+                {/* if error show this div with error */}
+                {error && <div>{error}</div>}
+              </form>
+            </div>
           </div>
         </div>
       </div>

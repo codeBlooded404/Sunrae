@@ -8,7 +8,7 @@ import { auth } from './firebase'
 
 function Header() {
 
-  const [{ cart, user }, dispatch] = useStateValue();
+  const [{ cart, user }] = useStateValue();
 
   const handleUserAuth = () =>{
     if(user){

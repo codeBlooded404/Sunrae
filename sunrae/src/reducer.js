@@ -3,7 +3,7 @@
 //create the initialState with empty cart and no user
 export const initialState = {
   cart: [],
-  user: null
+  user: null,
 };
 
 //build selector
@@ -20,6 +20,12 @@ const reducer = (state, action) => {
         ...state,
         //changes to the cart
         cart: [...state.cart, action.item],
+      };
+
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: [],
       };
 
     case "REMOVE_FROM_YOUR_CART":
@@ -44,11 +50,11 @@ const reducer = (state, action) => {
       };
 
     case "SET_USER_NAME":
-      return{
+      return {
         //everything that is in the state and update user
         ...state,
-        user: action.user
-      }
+        user: action.user,
+      };
 
     default:
       return state;

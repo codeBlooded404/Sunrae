@@ -6,12 +6,18 @@ import Login from "./Login";
 import Checkout from "./Checkout";
 import Payment from "./Payment";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { auth, getAuth, updateEmail } from "./firebase";
+import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+//public key
+const promise = loadStripe(
+  "pk_test_51M4vGoHFTpE6Z20QHAKbFZPUfl10dLURsvcF0cWAUpvDNmrFQCscW0mvzeCaPDQkKGm42YN8B68B8r2wlu7jnfSm00pgNLO5eJ"
+);
 
 function App() {
-  const [{ cart }, dispatch] = useStateValue();
+  const [ dispatch] = useStateValue();
 
   //keeping track of who is signed in using a listener
   //runs only once when this function is loaded if [] is empty - App in this case
@@ -51,7 +57,7 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
-        
+
           <Route path="/profile" element={<h1>profile page</h1>} />
           <Route
             path="/orders"
@@ -70,9 +76,17 @@ function App() {
               </>
             }
           />
-          <Route path="/payment" element={<>
-                <Header /> <Payment />
-              </>} />
+          <Route
+            path="/payment"
+            element={
+              <>
+                <Header />
+                <Elements stripe={promise}>
+                  <Payment />
+                </Elements>
+              </>
+            }
+          />
         </Routes>
       </Router>
     </div>

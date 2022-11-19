@@ -6,7 +6,6 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut,
 } from "firebase/auth";
 
 function Login() {
@@ -17,7 +16,7 @@ function Login() {
   const [loginPassword, setLoginPassword] = useState("");
   const history = useNavigate ();
 
-  const [user, setUser] = useState({});
+  const [setUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
