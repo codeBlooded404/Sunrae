@@ -10,6 +10,7 @@ import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import SearchBar from "./Searchbar";
 
 //public key
 const promise = loadStripe(
@@ -17,7 +18,7 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [ dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
 
   //keeping track of who is signed in using a listener
   //runs only once when this function is loaded if [] is empty - App in this case
@@ -57,7 +58,7 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
-
+          <Route path="/search" element={<SearchBar />} />
           <Route path="/profile" element={<h1>profile page</h1>} />
           <Route
             path="/orders"

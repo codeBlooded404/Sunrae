@@ -10,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "sunraecap.appspot.com",
   messagingSenderId: "249438781867",
   appId: "1:249438781867:web:a00ba1f0d516db4b1952ee",
-  measurementId: "G-3S2HPYJ375"
+  measurementId: "G-3S2HPYJ375",
 };
 
 const app = initializeApp(firebaseConfig);
