@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
 import "./Login.css";
 import {
@@ -14,9 +14,9 @@ function Login() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const history = useNavigate ();
+  const history = useNavigate();
 
-  const [setUser] = useState({});
+  const [setUser] = useState([]);
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -33,10 +33,10 @@ function Login() {
         loginEmail,
         loginPassword
       );
-      if(auth){
-        history('/');
+      if (auth) {
+        history("/");
       }
-      console.log(user);
+      //console.log(user);
     } catch (error) {
       alert(error.message);
     }
@@ -50,12 +50,11 @@ function Login() {
         registerEmail,
         registerPassword
       );
-      if(auth){
-        history('/');
+      if (auth) {
+        history("/");
       }
       console.log(user);
-    } 
-    catch (error) {
+    } catch (error) {
       alert(error.message);
     }
   };
@@ -94,6 +93,8 @@ function Login() {
           <button className="login__signIn" type="submit" onClick={login}>
             Click To Sign In
           </button>
+
+          <h5>Click below to become a SunRae member: </h5>
         </form>
 
         <button

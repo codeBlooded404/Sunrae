@@ -19,8 +19,6 @@ function Header() {
 
   const search = () => {
     setSearchInput("");
-
-    
   };
 
   return (
@@ -34,10 +32,10 @@ function Header() {
       </Link>
 
       <div className="header__search">
-        <input className="header__searchText" type="text"></input>
+        {/* <input className="header__searchText" type="text"></input>
         <Link className="text-link" to="/search">
           <SearchTwoToneIcon className="header__searchIcon" onClick={search} onChan />
-        </Link>
+        </Link> */}
       </div>
 
       <div className="header__nav">

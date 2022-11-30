@@ -4,9 +4,8 @@ import { useStateValue } from "./StateProvider";
 
 //accepting {props} deconstructs and you get access to the properties of the component
 function Product({ id, title, image, price, rating }) {
-  
   const [{ cart }, dispatch] = useStateValue();
-    //  console.log("Cart: ", cart);
+  //  console.log("Cart: ", cart);
   const addToCart = () => {
     //send item to data layer
     dispatch({
