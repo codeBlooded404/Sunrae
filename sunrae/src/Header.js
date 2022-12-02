@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
+// import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
@@ -9,7 +9,7 @@ import { useState } from "react";
 
 function Header() {
   const [{ cart, user }] = useStateValue();
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
 
   const handleUserAuth = () => {
     if (user) {
@@ -17,9 +17,9 @@ function Header() {
     }
   };
 
-  const search = () => {
-    setSearchInput("");
-  };
+  // const search = () => {
+  //   setSearchInput("");
+  // };
 
   return (
     <div className="header">
@@ -55,7 +55,7 @@ function Header() {
           </div>
         </Link>
 
-        <Link className="text-link" to="/orders">
+        <Link className="text-link" to="/checkout">
           <div className="header__option">
             <span className="header__lineOne">Your</span>
             <span className="header__lineTwo">Orders</span>

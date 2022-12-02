@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useElements, useStripe, CardElement } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import axios from "./axios";
+import Sizing from "./Sizing";
+
 //import { db } from "./firebase";
 
 function Payment() {
@@ -36,8 +38,8 @@ function Payment() {
     getUserSecret();
   }, [cart]);
 
-  console.log("User Secret: ", userSecret);
-  console.log("User: ", user);
+  // console.log("User Secret: ", userSecret);
+  // console.log("User: ", user);
 
   const handleSubmit = async (e) => {
     //stripe working
@@ -57,6 +59,10 @@ function Payment() {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        // dispatch({
+        //   type: "EMPTY_CART",
+        // });
 
         history("/orders", { replace: true });
       });
@@ -86,8 +92,11 @@ function Payment() {
             </div>
             <div className="payment__address">
               <p>{user?.email}</p>
-              <p>123 Main Street</p>
-              <p>Seattle, Wa</p>
+              {/* <p>123 Main Street</p>
+              <p>Seattle, Wa</p> */}
+              <input type="text" placeholder="Street Address"></input>
+              <br />
+              <input type="text" placeholder="City State, Zip"></input>
             </div>
           </div>
 
@@ -129,11 +138,11 @@ function Payment() {
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                  <button disabled={processing || disabled || succeeded}>
+                  {/* <button disabled={processing || disabled || succeeded}>
                     <span>
                       {processing ? <p>Processing.....</p> : "Buy This Now"}
                     </span>
-                  </button>
+                  </button> */}
                 </div>
 
                 {/* if error show this div with error */}

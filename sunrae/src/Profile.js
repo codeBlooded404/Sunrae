@@ -2,16 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import { useStateValue } from "./StateProvider";
-import { auth } from "./firebase";
 
 function Profile() {
   const [{ user }] = useStateValue();
-
-  const handleUserAuth = () => {
-    if (user) {
-      auth.signOut();
-    }
-  };
 
   return (
     <div className="login">
@@ -32,11 +25,13 @@ function Profile() {
           </u>
         </h3>
         <h3>{!user ? "Please Sign In First" : user.email}</h3>
+        <br />
+        
       </div>
 
-      <Link className="text-link" to="/">
+      <Link className="text-link" to="/login">
         <div className="header__option">
-          <span className="header__lineOne">Go back to Home Page</span>
+          <span className="header__lineOne">Go to Login Page</span>
         </div>
       </Link>
     </div>

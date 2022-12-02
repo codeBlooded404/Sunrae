@@ -18,7 +18,7 @@ const reducer = (state, action) => {
       return {
         //original state
         ...state,
-        //changes to the cart
+        //changes to the cart - pushes item to cart
         cart: [...state.cart, action.item],
       };
 
@@ -28,7 +28,7 @@ const reducer = (state, action) => {
         basket: [],
       };
 
-    case "REMOVE_FROM_YOUR_CART":
+    case "REMOVE_FROM_THE_CART":
       //copy of current state
       let newCart = [...state.cart];
 

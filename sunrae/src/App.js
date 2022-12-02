@@ -13,6 +13,9 @@ import { Elements } from "@stripe/react-stripe-js";
 import SearchBar from "./Searchbar";
 import Uploading from "./Uploading";
 import Profile from "./Profile";
+import AdultTshirt from "./AdultTshirt";
+import Tumbler from "./Tumbler";
+import Onesie from "./Onesie";
 
 //public key
 const promise = loadStripe(
@@ -20,7 +23,7 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [{},dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   //keeping track of who is signed in using a listener
   //runs only once when this function is loaded if [] is empty - App in this case
@@ -61,17 +64,20 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
-          <Route path="/search" element={<SearchBar />} />
+          {/* <Route path="/search" element={<SearchBar />} /> */}
           <Route path="/uploading" element={<Uploading />} />
           <Route path="/profile" element={<Profile />} />
-          <Route
+          <Route path="/tshirt" element={<AdultTshirt />} />
+          <Route path="/onesie" element={<Onesie />} />
+          <Route path="/tumbler" element={<Tumbler />} />
+          {/* <Route
             path="/orders"
             element={
               <>
                 <Header /> <Checkout />
               </>
             }
-          />
+          /> */}
           <Route
             path="/checkout"
             element={

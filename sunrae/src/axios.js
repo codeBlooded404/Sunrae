@@ -2,8 +2,10 @@
 //https://axios-http.com/docs/intro
 //https://www.freecodecamp.org/news/how-to-use-axios-with-react/#how-to-create-an-axios-instance
 
+// import axios from "axios";
+
 // const instance = axios.create({
-//   baseURL: "",
+//   baseURL: "...",
 // });
 
 // export default instance;

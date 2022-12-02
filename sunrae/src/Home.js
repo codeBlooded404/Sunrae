@@ -1,6 +1,9 @@
 import React from "react";
 import "./Home.css";
+import TumblerDirection from "./TumblerDirection";
+import TshirtDirection from "./TshirtDirection";
 import Product from "./Product";
+import OnesieDirection from "./OnesieDirection";
 
 function Home() {
   return (
@@ -14,87 +17,20 @@ function Home() {
 
         <div className="home__row">
           {/*products */}
-          <Product
-            id="1"
-            title="The Bad Mom&#39;s Club"
-            price={19.99}
-            image="../images/badmamaclubshirt.jpg"
-            rating={5}
-          />
-          {/*products */}
-          <Product
-            id="2"
-            title="Bengal&#39;s Who Dey"
-            price={19.99}
-            image="../images/whodey.jpg"
-            rating={3}
-          />
-          {/*products */}
-          <Product
-            id="3"
-            title="Cheer Mom Life"
-            price={19.99}
-            image="../images/cheermomlife.jpg"
-            rating={2}
-          />
-        </div>
 
-        <div className="home__row">
-          {/*products */}
-          <Product
-            id="4"
-            title="Stay Wild"
-            price={14.99}
-            image="../images/staywildonsie.jpg"
-            rating={2}
+          <TshirtDirection
+            title="Shirts"
+            image={process.env.PUBLIC_URL + "images/tshirtPlaceholder.jpg"}
           />
-          {/*products */}
-          <Product
-            id="5"
-            title="Wild Thang"
-            price={14.99}
-            image="../images/wildthangshirt.jpg"
-            rating={3}
-          />
-          {/*products */}
-          <Product
-            id="6"
-            title="Sweet as a Peach"
-            price={14.99}
-            image="../images/sweetasapeachonsie.jpg"
-            rating={4}
-          />
-        </div>
 
-        <div className="home__row">
-          {/*products */}
-          <Product
-            id="7"
-            title="Tumbler: Not in the Mood"
-            price={29.99}
-            image="../images/mooddrink.jpg"
-            rating={4}
+          <OnesieDirection
+            title="Onesie's"
+            image={process.env.PUBLIC_URL + "images/onesiePlaceholder.jpg"}
           />
-          {/*products */}
-          <Product
-            id="8"
-            title="Tumbler: Cold Brew"
-            price={29.99}
-            image="../images/coldbrewdrink.jpg"
-            rating={3}
+          <TumblerDirection
+            title="Tumbler's"
+            image={process.env.PUBLIC_URL + "images/tumblerPlaceholder.jpg"}
           />
-          <Product
-            id="9"
-            title="Tumbler: Leopard print"
-            price={29.99}
-            image="../images/leoparddrink.jpg"
-            rating={5}
-          />
-        </div>
-
-        <div className="home__row">
-          {/*products */}
-          {/*products */}
         </div>
       </div>
     </div>
