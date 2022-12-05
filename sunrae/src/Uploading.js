@@ -1,5 +1,5 @@
 //https://www.npmjs.com/package/uuid
-{
+
   /*
 import "./Uploading.css";
 // import "bootstrap/dist/css/bootstrap.css";
@@ -84,8 +84,7 @@ function Uploading() {
       {/* {imageList.map((url) => {
         return <img src={url} />;
       })} */
-}
-{
+
   /*
     </div>
   );
@@ -93,4 +92,5 @@ function Uploading() {
 
 export default Uploading;
 */
-}
+
+
