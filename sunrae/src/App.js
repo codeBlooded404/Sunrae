@@ -10,12 +10,8 @@ import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import SearchBar from "./Searchbar";
-import Uploading from "./Uploading";
 import Profile from "./Profile";
-import AdultTshirt from "./AdultTshirt";
-import Tumbler from "./Tumbler";
-import Onesie from "./Onesie";
+import Tab from "./Tab";
 
 //public key
 const promise = loadStripe(
@@ -51,8 +47,7 @@ function App() {
     //following the BEM convention
     <div className="app">
       <Router>
-        {/* <Header /> */}
-
+        <Tab title={"A Store For All Us Mom's"} />
         <Routes>
           <Route
             path="/"
@@ -64,19 +59,7 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
-          <Route path="/uploading" element={<Uploading />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/tshirt" element={<AdultTshirt />} />
-          <Route path="/onesie" element={<Onesie />} />
-          <Route path="/tumbler" element={<Tumbler />} />
-          {/* <Route
-            path="/orders"
-            element={
-              <>
-                <Header /> <Checkout />
-              </>
-            }
-          /> */}
           <Route
             path="/checkout"
             element={

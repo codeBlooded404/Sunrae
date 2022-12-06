@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Sizing.css";
 
-function Sizing() {
+function ChildSize() {
   const categories = [
     "- X-Small -",
     "- Small -",
@@ -12,7 +12,7 @@ function Sizing() {
     "- XX-Large -",
   ];
 
-  const [category, setCategory] = useState("Select Tshirt Size : ");
+  const [category, setCategory] = useState("Select Child's Size : ");
 
   return (
     <form className="header__searchForm ">
@@ -32,4 +32,4 @@ function Sizing() {
   );
 }
 
-export default Sizing;
+export default ChildSize;

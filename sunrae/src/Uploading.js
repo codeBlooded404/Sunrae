@@ -1,6 +1,6 @@
 //https://www.npmjs.com/package/uuid
 
-  /*
+/*
 import "./Uploading.css";
 // import "bootstrap/dist/css/bootstrap.css";
 import { Link } from "react-router-dom";
@@ -85,12 +85,10 @@ function Uploading() {
         return <img src={url} />;
       })} */
 
-  /*
+/*
     </div>
   );
 }
 
 export default Uploading;
 */
-
-

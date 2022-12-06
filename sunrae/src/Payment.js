@@ -9,6 +9,7 @@ import { useElements, useStripe, CardElement } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import axios from "./axios";
 import Sizing from "./Sizing";
+import ChildSize from "./ChildSize";
 
 //import { db } from "./firebase";
 
@@ -98,14 +99,16 @@ function Payment() {
               <br />
               <input type="text" placeholder="City State, Zip"></input>
               <br />
-              <br />
-              <label>T-Shirt Size:</label>
+              {/* <br /> */}
+              {/* <label>T-Shirt Size:</label> */}
               <br/>
-              <input type="text" placeholder="S - XXL"></input>
+              {/* <input type="text" placeholder="S - XXL"></input> */}
+              <Sizing/>
               <br />
-              <label>Onesie/Toddler Size:</label>
+              {/* <label>Onesie/Toddler Size:</label>
               <br/>
-              <input type="text" placeholder="Specify Onesie/Toddler sizes"></input>
+              <input type="text" placeholder="Specify Onesie/Toddler sizes"></input> */}
+              <ChildSize />
             </div>
           </div>
 
