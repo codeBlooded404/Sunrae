@@ -99,8 +99,12 @@ function Payment() {
               <input type="text" placeholder="City State, Zip"></input>
               <br />
               <br />
-              <input type="text" placeholder="Specify Tshirt sizes"></input>
+              <label>T-Shirt Size:</label>
+              <br/>
+              <input type="text" placeholder="S - XXL"></input>
               <br />
+              <label>Onesie/Toddler Size:</label>
+              <br/>
               <input type="text" placeholder="Specify Onesie/Toddler sizes"></input>
             </div>
           </div>
