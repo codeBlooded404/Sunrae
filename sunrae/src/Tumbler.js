@@ -2,12 +2,19 @@ import React from "react";
 import Header from "./Header";
 import "./Home.css";
 import Product from "./Product";
+import { useNavigate } from "react-router-dom";
 
 function Tumbler() {
+  const navigate = useNavigate();
+
+  const backToHome = () => {
+    navigate("/");
+  };
+
   return (
     <div className="home">
       <div className="home__container">
-        <Header/>
+        <Header />
         {/* banner */}
         <img
           className="home__image"
@@ -37,9 +44,41 @@ function Tumbler() {
             rating={5}
           />
         </div>
-      </div>
 
-      <div className="home__row"></div>
+        <div className="home__row">
+          <Product
+            id="7"
+            title="Tumbler: Hearts"
+            price={29.99}
+            image="../images/heartdrink.jpg"
+            rating={4}
+          />
+          <Product
+            id="8"
+            title="Tumbler: Mama's Coffee"
+            price={29.99}
+            image="../images/mamacoffeedrink.jpg"
+            rating={3}
+          />
+          <Product
+            id="9"
+            title="Tumbler: Smile"
+            price={29.99}
+            image="../images/smiledrink.jpg"
+            rating={5}
+          />
+        </div>
+
+        <div>
+          <button className="back__btn" onClick={backToHome}>
+            Click to See All Products
+          </button>
+        </div>
+
+        <footer className="footer">
+          <p>SunRae Designs - 2022 - All Rights Reserved</p>
+        </footer>
+      </div>
     </div>
   );
 }

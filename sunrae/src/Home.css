@@ -9,10 +9,12 @@
 .home__row {
   display: flex;
   flex-direction: row;
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
   z-index: 1;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1500px;
+  max-width: 1250px;
 }
 
 .home__image {
@@ -21,4 +23,70 @@
   z-index: -1;
   margin-bottom: -100px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.tshirt__image {
+  width: 100%;
+  height: 20%;
+  z-index: -1;
+  margin-bottom: -100px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.back__btn {
+  background-color: rgb(234, 181, 111);
+  position: sticky;
+  border: 3px solid;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 850px;
+  /* margin-right: 44.5%; */
+  border-color: #b9a061;
+  font-size: 1.1rem;
+}
+
+.back__btn:hover {
+  background-color: #b9a061;
+  color: rgb(234, 181, 111);
+}
+
+.footer {
+  margin-top: 35px;
+  font-weight: 100;
+  color: #5f4607;
+  text-align: center;
+}
+
+@media (max-width: 785px) {
+}
+
+@media (max-width: 785px) {
+  .home__image {
+    height: 10%;
+  }
+
+  .home__row {
+    flex-direction: column;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 518px) {
+  .home__row {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 390px) {
+  .home__image {
+    height: 25%;
+  }
+
+  .home__row {
+    flex-direction: column;
+    max-width: 300px;
+    margin-left: 30px;
+  }
 }

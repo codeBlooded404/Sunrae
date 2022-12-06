@@ -31,12 +31,12 @@ function Header() {
         />
       </Link>
 
-      <div className="header__search">
-        {/* <input className="header__searchText" type="text"></input>
+      {/* <div className="header__search">
+        <input className="header__searchText" type="text"></input>
         <Link className="text-link" to="/search">
           <SearchTwoToneIcon className="header__searchIcon" onClick={search} onChan />
-        </Link> */}
-      </div>
+        </Link>
+      </div> */}
 
       <div className="header__nav">
         <Link className="text-link" to={!user && "/login"}>

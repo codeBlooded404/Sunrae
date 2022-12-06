@@ -4,11 +4,16 @@
   margin-right: auto;
   margin-left: auto;
   width: 20rem;
-  object-fit: contain; /* To maintain aspect ratio */
+  object-fit: contain;
+}
+
+.login__logo:hover {
+  width: 22.5rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 30px #fc8200;
 }
 
 .login {
-  /* background-color: rgb(251, 235, 204); */
   background-image: radial-gradient(circle, #ffeda3 0%, #f1932f 100%);
   display: flex;
   align-items: center;
@@ -18,7 +23,7 @@
 
 .login__container {
   padding: 20px;
-  width: 300px;
+  width: 350px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -56,7 +61,7 @@
   height: 30px;
   margin-bottom: 10px;
   background-color: rgb(246, 239, 217);
-  width: 97%;
+  width: 100%;
   border: none;
   box-shadow: 1px 1px 5px #b1820a;
 }
@@ -74,6 +79,16 @@
   font-size: 1.1rem;
 }
 
+.login__signIn:hover {
+  background-color: rgb(251, 214, 127);
+  border: 1px solid rgb(202, 159, 103);
+}
+
+.login__register:hover {
+  background-color: rgb(202, 159, 103);
+  border: 1px solid rgb(251, 214, 127);
+}
+
 .login__register {
   background-color: rgb(251, 214, 127);
   /* box-shadow: 1px 1px 5px #b1820a; */
@@ -83,4 +98,19 @@
   height: 30px;
   margin-top: 10px;
   font-size: 1.1rem;
+}
+
+.footer {
+  margin-top: 125px;
+  /* font-size: 12px; */
+  font-weight: 100;
+  color: #5f4607;
+  text-align: center;
+}
+
+.profile__link {
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
 }

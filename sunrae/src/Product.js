@@ -25,7 +25,7 @@ function Product({ id, title, image, price, rating }) {
         <p>{title}</p>
         <p className="product__price">
           <span>$</span>
-          <strong>{price}</strong>
+          <small>{price}</small>
         </p>
       </div>
       <img className="product__image" src={image} />

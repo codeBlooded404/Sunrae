@@ -29,7 +29,7 @@ function App() {
   //runs only once when this function is loaded if [] is empty - App in this case
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("The user is: ", authUser);
+      //console.log("The user is: ", authUser);
 
       if (authUser) {
         //user either logged in or just logged in
@@ -64,7 +64,6 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/search" element={<SearchBar />} /> */}
           <Route path="/uploading" element={<Uploading />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/tshirt" element={<AdultTshirt />} />

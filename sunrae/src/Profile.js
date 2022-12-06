@@ -26,14 +26,21 @@ function Profile() {
         </h3>
         <h3>{!user ? "Please Sign In First" : user.email}</h3>
         <br />
-        
       </div>
 
-      <Link className="text-link" to="/login">
-        <div className="header__option">
-          <span className="header__lineOne">Go to Login Page</span>
-        </div>
-      </Link>
+      {!user ? (
+        <Link className="text-link" to="/login">
+          <div className="header__option">
+            <span className="profile__link">Go Login / Register Here</span>
+          </div>
+        </Link>
+      ) : (
+        <Link className="text-link" to="/">
+          <div className="header__option">
+            <span className="profile__link">Go to Enjoy Shopping </span>
+          </div>
+        </Link>
+      )}
     </div>
   );
 }

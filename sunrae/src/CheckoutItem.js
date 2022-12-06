@@ -1,7 +1,7 @@
 import React from "react";
 import "./CheckoutItem.css";
 import { useStateValue } from "./StateProvider";
-import Sizing from "./Sizing";
+// import Sizing from "./Sizing";
 
 function CheckoutItem({ id, title, image, price }) {
   const [{ cart }, dispatch] = useStateValue();

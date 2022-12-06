@@ -90,6 +90,7 @@ function Login() {
             }}
           ></input>
 
+          <h5>Welcome Back SunRae Family: </h5>
           <button className="login__signIn" type="submit" onClick={login}>
             Click To Sign In
           </button>
@@ -108,6 +109,10 @@ function Login() {
         {/* <h4> User Logged In: </h4>
         {user?.email}
         <button onClick={logout}> Sign Out </button> */}
+
+        <footer className="footer">
+          <p>SunRae Designs - 2022 - All Rights Reserved</p>
+        </footer>
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ function Payment() {
           {/* delivery address */}
           <div className="payment__addressSection">
             <div className="payment__title">
-              <h3>Deliver to</h3>
+              <h3>Delivery Address:</h3>
             </div>
             <div className="payment__address">
               <p>{user?.email}</p>
@@ -97,13 +97,18 @@ function Payment() {
               <input type="text" placeholder="Street Address"></input>
               <br />
               <input type="text" placeholder="City State, Zip"></input>
+              <br />
+              <br />
+              <input type="text" placeholder="Specify Tshirt sizes"></input>
+              <br />
+              <input type="text" placeholder="Specify Onesie/Toddler sizes"></input>
             </div>
           </div>
 
           {/* review items */}
           <div className="payment__reviewSection">
             <div className="payment__title">
-              <h3>Review Cart</h3>
+              <h3>Review Cart:</h3>
             </div>
             <div className="payment__items">
               {/* for every item in cart, return the checkoutItem component  */}
@@ -122,7 +127,7 @@ function Payment() {
           {/* payment section would go here */}
           <div className="payment__paymentSection">
             <div className="payment__title">
-              <h3>Payment</h3>
+              <h3>Payment:</h3>
             </div>
             <div className="payment__details">
               {/* Stripe magic will go */}
@@ -148,6 +153,7 @@ function Payment() {
                 {/* if error show this div with error */}
                 {error && <div>{error}</div>}
               </form>
+              <button className="payment__btn">Confirm Purchase</button>
             </div>
           </div>
         </div>

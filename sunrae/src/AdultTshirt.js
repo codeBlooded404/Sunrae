@@ -17,7 +17,7 @@ function AdultTshirt() {
         <Header />
         {/* banner */}
         <img
-          className="home__image"
+          className="tshirt__image"
           src={process.env.PUBLIC_URL + "images/banner1.jpg"}
         />
 
@@ -47,10 +47,6 @@ function AdultTshirt() {
           />
         </div>
 
-        <div>
-          <button onClick={backToHome}>Back to Home</button>
-        </div>
-
         <div className="home__row">
           <Product
             id="1"
@@ -75,10 +71,6 @@ function AdultTshirt() {
             image="../images/americanprideshirts.jpg"
             rating={3}
           />
-        </div>
-
-        <div>
-          <button onClick={backToHome}>Back to Home</button>
         </div>
 
         <div className="home__row">
@@ -107,10 +99,6 @@ function AdultTshirt() {
           />
         </div>
 
-        <div>
-          <button onClick={backToHome}>Back to Home</button>
-        </div>
-
         <div className="home__row">
           <Product
             id="1"
@@ -128,9 +116,17 @@ function AdultTshirt() {
             rating={3}
           />
         </div>
-      </div>
 
-      <div className="home__row"></div>
+        <div>
+          <button className="back__btn" onClick={backToHome}>
+            Click to See All Products
+          </button>
+        </div>
+
+        <footer className="footer">
+          <p>SunRae Designs - 2022 - All Rights Reserved</p>
+        </footer>
+      </div>
     </div>
   );
 }
