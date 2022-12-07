@@ -11,7 +11,6 @@ import axios from "./axios";
 import Sizing from "./Sizing";
 import ChildSize from "./ChildSize";
 
-//import { db } from "./firebase";
 
 function Payment() {
   const [{ cart, user }] = useStateValue();
@@ -61,10 +60,6 @@ function Payment() {
         setError(null);
         setProcessing(false);
 
-        // dispatch({
-        //   type: "EMPTY_CART",
-        // });
-
         history("/orders", { replace: true });
       });
   };
@@ -93,21 +88,13 @@ function Payment() {
             </div>
             <div className="payment__address">
               <p>{user?.email}</p>
-              {/* <p>123 Main Street</p>
-              <p>Seattle, Wa</p> */}
               <input type="text" placeholder="Street Address"></input>
               <br />
               <input type="text" placeholder="City State, Zip"></input>
               <br />
-              {/* <br /> */}
-              {/* <label>T-Shirt Size:</label> */}
               <br/>
-              {/* <input type="text" placeholder="S - XXL"></input> */}
               <Sizing/>
               <br />
-              {/* <label>Onesie/Toddler Size:</label>
-              <br/>
-              <input type="text" placeholder="Specify Onesie/Toddler sizes"></input> */}
               <ChildSize />
             </div>
           </div>
@@ -150,11 +137,6 @@ function Payment() {
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                  {/* <button disabled={processing || disabled || succeeded}>
-                    <span>
-                      {processing ? <p>Processing.....</p> : "Buy This Now"}
-                    </span>
-                  </button> */}
                 </div>
 
                 {/* if error show this div with error */}
